@@ -79,8 +79,8 @@
 						],
 						{
 							"path": "bundle.zip",
-							"name": "Alura-LeilaoOnline-${nextRelease.gitTag}.zip",
-							"label": "Alura LeilaoOnline ${nextRelease.gitTag}"
+							"name": "Alura-Leilao-Online-${nextRelease.gitTag}.zip",
+							"label": "Alura Leilao Online ${nextRelease.gitTag}"
 						}
 					]
 				}
