@@ -75,10 +75,10 @@
 				"@semantic-release/github",
 				{
 					"assets": [
+					[ "bundle.zip" ],
 					{
-						"path": "bundle.zip",
 						"name": "Alura-LeilaoOnline-${nextRelease.gitTag}.zip",
-						"label": "Alura LeilaoOnline v${nextRelease.gitTag}"
+						"label": "Alura LeilaoOnline ${nextRelease.gitTag}"
 					}]
 				}
 			]
