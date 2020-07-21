@@ -39,7 +39,7 @@
 								"src/Alura.LeilaoOnline.WebApp/Alura.LeilaoOnline.WebApp.csproj"
 							],
 							"from": "<Version>.*<\/Version>",
-							"to": "<Version>${nextRelease.version}<\/Version>",
+							"to": "<Version>${nextRelease.version}</Version>",
 							"results": [
 								{
 									"file": "src/Alura.LeilaoOnline.WebApp/Alura.LeilaoOnline.WebApp.csproj",
