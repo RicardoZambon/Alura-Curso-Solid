@@ -4,8 +4,8 @@
 	"scripts": {
 		"semantic-release": "semantic-release",
 		"cz": "git-cz",
-		"zip": "bestzip bundle.zip build/*",
-		"publish": "dotnet publish projeto.sln -c RELEASE -o build && npm run zip"
+		"zip": "cd build/ && bestzip ../bundle.zip * && cd ..",
+		"publish": "dotnet publish projeto.sln -c RELEASE -o build /p:DebugType=None && npm run zip"
 	},
 	"repository": {
 		"type": "git",

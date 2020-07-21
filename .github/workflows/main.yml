@@ -34,8 +34,4 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v2
         with:
-            name: app
-            path: |
-              output
-              !output/**/*.pdb
-              !output/**/*.targets
+            path: output/
