@@ -31,6 +31,11 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
       
+      - name: List files
+        run: |
+            dir /home/runner/work/Alura-Curso-Solid/Alura-Curso-Solid/output
+            dir output
+        
       - name: Upload artifact
         uses: actions/upload-artifact@v2
         with:
