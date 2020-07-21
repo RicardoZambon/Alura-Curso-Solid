@@ -1,0 +1,94 @@
+{
+	"name": "alura-leilaoonline",
+	"version": "0.0.0-development",
+	"scripts": {
+		"semantic-release": "semantic-release",
+		"cz": "git-cz",
+		"zip": "bestzip bundle.zip build/*",
+		"publish": "dotnet publish projeto.sln -c RELEASE -o build"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/RicardoZambon/Alura-Curso-Solid.git"
+	},
+	"devDependencies": {
+		"@google/semantic-release-replace-plugin": "^1.0.0",
+		"@semantic-release/changelog": "^5.0.1",
+		"@semantic-release/commit-analyzer": "^8.0.1",
+		"@semantic-release/exec": "^5.0.0",
+		"@semantic-release/git": "^9.0.0",
+		"@semantic-release/github": "^7.0.7",
+		"@semantic-release/release-notes-generator": "^9.0.1",
+		"bestzip": "^2.1.5",
+		"cz-conventional-changelog": "^3.2.0",
+		"semantic-release": "^17.1.1"
+	},
+	"config": {
+		"commitizen": {
+			"path": "./node_modules/cz-conventional-changelog"
+		}
+	},
+	"release": {
+		"plugins": [
+			"@semantic-release/commit-analyzer",
+			"@semantic-release/release-notes-generator",
+			"@semantic-release/changelog",
+			[
+				"@google/semantic-release-replace-plugin",
+				{
+					"replacements": [
+						{
+							"files": [
+								"src/Alura.LeilaoOnline.WebApp/Alura.LeilaoOnline.WebApp.csproj"
+							],
+<<<<<<< HEAD
+							"from": "<Version>.*</Version>",
+=======
+							"from": "<Version>.*<\/Version>",
+>>>>>>> d9d690aa3a884bddb94a0014768137ae7a861d41
+							"to": "<Version>${nextRelease.version}</Version>",
+							"results": [
+								{
+									"file": "src/Alura.LeilaoOnline.WebApp/Alura.LeilaoOnline.WebApp.csproj",
+									"hasChanged": true,
+									"numMatches": 1,
+									"numReplacements": 1
+								}
+							],
+							"countMatches": true
+						}
+					]
+				}
+			],
+			[
+				"@semantic-release/git",
+				{
+					"assets": [
+						"src/Alura.LeilaoOnline.WebApp/*.csproj"
+					]
+				}
+			],
+			[
+				"@semantic-release/exec",
+				{
+					"publishCmd": "npm run publish",
+					"successCmd": "npm run zip"
+				}
+			],
+			[
+				"@semantic-release/github",
+				{
+					"assets": [
+					{
+						"path": "bundle.zip",
+						"name": "Alura-LeilaoOnline-${nextRelease.gitTag}.zip",
+						"label": "Alura LeilaoOnline v${nextRelease.gitTag}"
+					}]
+				}
+			]
+		],
+		"branches": [
+			"master"
+		]
+	}
+}
