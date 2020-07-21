@@ -30,3 +30,12 @@ jobs:
         run: npx semantic-release
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
+      
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+            name: app
+            path: |
+              output
+              !output/**/*.pdb
+              !output/**/*.targets

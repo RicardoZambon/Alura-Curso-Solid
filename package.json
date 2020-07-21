@@ -5,7 +5,7 @@
 		"semantic-release": "semantic-release",
 		"cz": "git-cz",
 		"zip": "bestzip bundle.zip build/*",
-		"publish": "dotnet publish projeto.sln -c RELEASE -o build"
+		"publish": "concurrently \"dotnet publish projeto.sln -c RELEASE -o build\" \"npm run zip\""
 	},
 	"repository": {
 		"type": "git",
@@ -20,6 +20,7 @@
 		"@semantic-release/github": "^7.0.7",
 		"@semantic-release/release-notes-generator": "^9.0.1",
 		"bestzip": "^2.1.5",
+		"concurrently": "^5.2.0",
 		"cz-conventional-changelog": "^3.2.0",
 		"semantic-release": "^17.1.1"
 	},
@@ -67,20 +68,22 @@
 			[
 				"@semantic-release/exec",
 				{
-					"publishCmd": "npm run publish",
-					"successCmd": "npm run zip"
+					"publishCmd": "npm run publish"
 				}
 			],
 			[
 				"@semantic-release/github",
 				{
 					"assets": [
-					[ "bundle.zip" ],
-					{
-						"path": "bundle.zip",
-						"name": "Alura-LeilaoOnline-${nextRelease.gitTag}.zip",
-						"label": "Alura LeilaoOnline ${nextRelease.gitTag}"
-					}]
+						[
+							"bundle.zip"
+						],
+						{
+							"path": "bundle.zip",
+							"name": "Alura-LeilaoOnline-${nextRelease.gitTag}.zip",
+							"label": "Alura LeilaoOnline ${nextRelease.gitTag}"
+						}
+					]
 				}
 			]
 		],
