@@ -41,7 +41,11 @@
 							"files": [
 								"src/Alura.LeilaoOnline.WebApp/Alura.LeilaoOnline.WebApp.csproj"
 							],
+<<<<<<< HEAD
 							"from": "<Version>.*</Version>",
+=======
+							"from": "<Version>.*<\/Version>",
+>>>>>>> d9d690aa3a884bddb94a0014768137ae7a861d41
 							"to": "<Version>${nextRelease.version}</Version>",
 							"results": [
 								{
