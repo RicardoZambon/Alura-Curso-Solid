@@ -21,25 +21,60 @@
     "semantic-release": "^17.1.1"
   },
   "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
+	"commitizen": {
+		"path": "./node_modules/cz-conventional-changelog"
+	}
   },
   "release": {
-    "plugins": [
-      "@semantic-release/commit-analyzer",
-      "@semantic-release/release-notes-generator",
-      "@semantic-release/github",
-      "@semantic-release/changelog",
-      [
-        "@semantic-release/exec",
-        {
-          "publishCmd": "echo ::set-env name=VERSION::${nextRelease.version}"
-        }
-      ]
+	"plugins": [
+		"@semantic-release/commit-analyzer",
+		"@semantic-release/release-notes-generator",
+		"@semantic-release/changelog",
+		[
+			"@google/semantic-release-replace-plugin",
+			{
+				"replacements": [
+				{
+					"files": [ "src/Alura.LeilaoOnline.WebApp/Alura.LeilaoOnline.WebApp.csproj" ],
+					"from": "<Version>.*</Version>",
+					"to": "<Version>${nextRelease.version}</Version>",
+					"results": [
+					{
+						"file": "src/Alura.LeilaoOnline.WebApp/Alura.LeilaoOnline.WebApp.csproj",
+						"hasChanged": true,
+						"numMatches": 1,
+						"numReplacements": 1
+					}
+					],
+					"countMatches": true
+				}]
+			}
+		],
+		[
+			"@semantic-release/git",
+			{
+				"assets": ["src/Alura.LeilaoOnline.WebApp/*.csproj"]
+			}
+		],
+		[
+			"@semantic-release/exec",
+			{
+				"publishCmd": "dotnet publish projeto.sln -c RELEASE -o output"
+			}
+		],
+		[
+			"@semantic-release/github",
+			{
+				"assets": [
+					[ "output/**/*" ],
+					{
+						"path": "dist/MyLibrary.js",
+						"label": "Alura LeilaoOnline v${nextRelease.gitTag}"
+					}
+				]
+			}
+		]
     ],
-    "branches": [
-      "master"
-    ]
+    "branches": [ "master" ]
   }
 }
