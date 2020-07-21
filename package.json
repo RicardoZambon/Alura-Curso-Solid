@@ -1,0 +1,45 @@
+{
+  "name": "alura-leilaoonline",
+  "version": "0.0.0-development",
+  "scripts": {
+    "semantic-release": "semantic-release",
+	"cz": "git-cz"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/RicardoZambon/Alura-Curso-Solid.git"
+  },
+  "devDependencies": {
+    "@google/semantic-release-replace-plugin": "^1.0.0",
+    "@semantic-release/changelog": "^5.0.1",
+    "@semantic-release/commit-analyzer": "^8.0.1",
+    "@semantic-release/exec": "^5.0.0",
+    "@semantic-release/git": "^9.0.0",
+    "@semantic-release/github": "^7.0.7",
+    "@semantic-release/release-notes-generator": "^9.0.1",
+    "cz-conventional-changelog": "^3.2.0",
+    "semantic-release": "^17.1.1"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "release": {
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/github",
+      "@semantic-release/changelog",
+      [
+        "@semantic-release/exec",
+        {
+          "publishCmd": "echo ::set-env name=VERSION::${nextRelease.version}"
+        }
+      ]
+    ],
+    "branches": [
+      "master"
+    ]
+  }
+}
