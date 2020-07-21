@@ -6,15 +6,15 @@ on:
     branches: [ master ]
 
 jobs:
-  build_test:
-    if: github.event_name != 'push' && github.ref == 'refs/heads/master'
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-        
-      - name: Build
-        run: dotnet build -c RELEASE
+  #build_test:
+  #  if: github.event_name == 'push' && github.ref != 'refs/heads/master'
+  #  runs-on: ubuntu-latest
+  #  steps:
+  #    - name: Checkout
+  #      uses: actions/checkout@v2
+  #      
+  #    - name: Build
+  #      run: dotnet build -c RELEASE
   
   release:
     if: github.event_name == 'push' && github.ref == 'refs/heads/master'
