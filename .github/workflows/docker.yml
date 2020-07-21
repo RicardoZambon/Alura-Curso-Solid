@@ -16,7 +16,6 @@ jobs:
 
       - name: Docker build
         run: docker build -t ricardozambon/alura-curso-solid .
-        working-directory: ./artifact
 
       - name: Push to DockerHub
         run: |
