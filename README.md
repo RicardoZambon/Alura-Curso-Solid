@@ -11,4 +11,4 @@ Projeto de desenvolvimento do curso da Alura sobre SOLID.
 * :white_check_mark: Responsabilidade única;
 * :white_check_mark: Inversão de dependências;
 * :white_check_mark: Princípio do Aberto/Fechado;
-* :black_square_button: Segregação de Interfaces e Liskov;
+* :eight_pointed_black_star: Segregação de Interfaces e Liskov;
