@@ -28,6 +28,9 @@ namespace Alura.LeilaoOnline.WebApp
             services.AddDbContext<AppDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
+            services.AddScoped<LeiloesDAO>();
+            services.AddScoped<CategoriasDAO>();
+
             var sp = services.BuildServiceProvider();
             var ctx = sp.GetService<AppDbContext>();
             DatabaseGenerator.Seed(ctx);
