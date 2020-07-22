@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace Alura.LeilaoOnline.WebApp.Dados.DAO
 {
-    public interface ILeiloesDao : IDao<Leilao>
+    public interface ILeilaoDao : IDao<Leilao>
     {
         IQueryable<Leilao> FindByTerm(string term);
     }

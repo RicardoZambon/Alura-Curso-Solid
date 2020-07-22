@@ -2,6 +2,8 @@ using Alura.LeilaoOnline.WebApp.Dados;
 using Alura.LeilaoOnline.WebApp.Dados.DAO;
 using Alura.LeilaoOnline.WebApp.Dados.DAO.EfCore;
 using Alura.LeilaoOnline.WebApp.Seeding;
+using Alura.LeilaoOnline.WebApp.Services;
+using Alura.LeilaoOnline.WebApp.Services.Handlers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -30,8 +32,11 @@ namespace Alura.LeilaoOnline.WebApp
             services.AddDbContext<AppDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddScoped<ILeiloesDao, LeiloesDao>();
+            services.AddScoped<ILeilaoDao, LeiloesDao>();
             services.AddScoped<ICategoriasDao, CategoriasDao>();
+
+            services.AddScoped<IAdminService, DefaultAdminService>();
+            services.AddScoped<IProdutoService, DefaultProdutoService>();
 
             var sp = services.BuildServiceProvider();
             var ctx = sp.GetService<AppDbContext>();
