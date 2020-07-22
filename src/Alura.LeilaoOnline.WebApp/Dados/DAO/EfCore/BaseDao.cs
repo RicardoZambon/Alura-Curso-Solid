@@ -1,39 +1,38 @@
 ﻿using System.Linq;
 
-namespace Alura.LeilaoOnline.WebApp.Dados
+namespace Alura.LeilaoOnline.WebApp.Dados.DAO.EfCore
 {
-    public abstract class BaseDAO<T> where T : class
+    public abstract class BaseDao<T> : IDao<T> where T : class
     {
         protected readonly AppDbContext _context;
 
-        public BaseDAO(AppDbContext context)
+        public BaseDao(AppDbContext context)
         {
             _context = context;
         }
 
-
-        public virtual IQueryable<T> Listar()
+        public virtual IQueryable<T> List()
             => _context.Set<T>();
 
-        public virtual T ProcurarPorId(int id)
+        public virtual T FindByID(int id)
             => _context.Set<T>().Find(id);
 
 
-        public virtual void Inserir(T entity)
+        public virtual void Insert(T entity)
         {
             _context.Set<T>().Add(entity);
             _context.SaveChanges();
         }
 
-        public virtual void Alterar(T entity)
+        public virtual void Update(T entity)
         {
             _context.Set<T>().Update(entity);
             _context.SaveChanges();
         }
 
-        public virtual void Remover(T leilao)
+        public virtual void Delete(T entity)
         {
-            _context.Set<T>().Remove(leilao);
+            _context.Set<T>().Remove(entity);
             _context.SaveChanges();
         }
     }
