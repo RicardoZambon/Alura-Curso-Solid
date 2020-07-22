@@ -1,6 +1,4 @@
-using Alura.LeilaoOnline.WebApp.Dados;
 using Alura.LeilaoOnline.WebApp.Dados.DAO;
-using Alura.LeilaoOnline.WebApp.Dados.DAO.EfCore;
 using Alura.LeilaoOnline.WebApp.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -17,6 +15,7 @@ namespace Alura.LeilaoOnline.WebApp.Controllers
             _leiloesDAO = leiloesDAO;
             _categoriasDAO = categoriasDAO;
         }
+
 
         public IActionResult Index()
         {
