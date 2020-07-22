@@ -4,16 +4,44 @@ using System.Linq;
 
 namespace Alura.LeilaoOnline.WebApp.Dados.DAO.EfCore
 {
-    public class LeiloesDao : BaseDao<Leilao>, ILeilaoDao
+    public class LeiloesDao : ILeilaoDao
     {
-        public LeiloesDao(AppDbContext context) : base(context)
-        {
+        private readonly AppDbContext _context;
 
+        public LeiloesDao(AppDbContext context)
+        {
+            _context = context;
         }
 
 
-        public override IQueryable<Leilao> List()
-            => base.List().Include(l => l.Categoria);
+        public virtual IQueryable<Leilao> List()
+            => _context.Set<Leilao>()
+                .Include(l => l.Categoria);
+
+        public virtual Leilao FindByID(int id)
+            => _context.Set<Leilao>().Find(id);
+
+
+        public virtual void Insert(Leilao entity)
+        {
+            _context.Set<Leilao>().Add(entity);
+            _context.SaveChanges();
+        }
+
+
+        public virtual void Update(Leilao entity)
+        {
+            _context.Set<Leilao>().Update(entity);
+            _context.SaveChanges();
+        }
+
+
+        public virtual void Delete(Leilao entity)
+        {
+            _context.Set<Leilao>().Remove(entity);
+            _context.SaveChanges();
+        }
+
 
         public IQueryable<Leilao> FindByTerm(string term)
             => List()

@@ -2,13 +2,8 @@
 
 namespace Alura.LeilaoOnline.WebApp.Dados.DAO
 {
-    public interface IDao<T> where T : class
+    public interface ICommand<T> where T : class
     {
-        IQueryable<T> List();
-
-        T FindByID(int id);
-
-
         void Insert(T entity);
 
         void Update(T entity);
