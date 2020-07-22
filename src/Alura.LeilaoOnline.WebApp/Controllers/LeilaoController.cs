@@ -12,9 +12,9 @@ namespace Alura.LeilaoOnline.WebApp.Controllers
 
         AppDbContext _context;
 
-        public LeilaoController()
+        public LeilaoController(AppDbContext context)
         {
-            _context = new AppDbContext();
+            _context = context;
         }
 
         public IActionResult Index()

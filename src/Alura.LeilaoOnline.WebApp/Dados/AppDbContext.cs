@@ -8,10 +8,6 @@ namespace Alura.LeilaoOnline.WebApp.Dados
         public DbSet<Leilao> Leiloes { get; set; }
         public DbSet<Categoria> Categorias { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=AluraLeiloesDB;Trusted_Connection=true");
-        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -11,9 +11,9 @@ namespace Alura.LeilaoOnline.WebApp.Controllers
     {
         AppDbContext _context;
 
-        public HomeController()
+        public HomeController(AppDbContext context)
         {
-            _context = new AppDbContext();
+            _context = context;
         }
 
         public IActionResult Index()

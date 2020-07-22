@@ -8,7 +8,6 @@ namespace Alura.LeilaoOnline.WebApp
     {
         public static void Main(string[] args)
         {
-            DatabaseGenerator.Seed();
             CreateHostBuilder(args).Build().Run();
         }
 

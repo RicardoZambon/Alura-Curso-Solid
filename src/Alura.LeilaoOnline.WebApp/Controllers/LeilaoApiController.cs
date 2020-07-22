@@ -11,9 +11,9 @@ namespace Alura.LeilaoOnline.WebApp.Controllers
     {
         AppDbContext _context;
 
-        public LeilaoApiController()
+        public LeilaoApiController(AppDbContext context)
         {
-            _context = new AppDbContext();
+            _context = context;
         }
 
         [HttpGet]
