@@ -3,8 +3,8 @@ using System.Linq;
 
 namespace Alura.LeilaoOnline.WebApp.Dados.DAO
 {
-    public interface ICategoriasDao : IDao<Categoria>
+    public interface ICategoriaDao : IDao<Categoria>
     {
-        IQueryable<CategoriaComInfoLeilao> ListWithAuction();
+
     }
 }

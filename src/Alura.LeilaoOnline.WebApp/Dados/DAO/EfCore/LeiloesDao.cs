@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Alura.LeilaoOnline.WebApp.Dados.DAO.EfCore
 {
-    public class LeiloesDao : BaseDao<Leilao>, ILeiloesDao
+    public class LeiloesDao : BaseDao<Leilao>, ILeilaoDao
     {
         public LeiloesDao(AppDbContext context) : base(context)
         {
