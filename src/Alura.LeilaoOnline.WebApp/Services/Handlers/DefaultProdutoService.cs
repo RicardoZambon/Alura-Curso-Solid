@@ -8,9 +8,9 @@ namespace Alura.LeilaoOnline.WebApp.Services.Handlers
     public class DefaultProdutoService : IProdutoService
     {
         private readonly ILeilaoDao _leilaoDao;
-        private readonly ICategoriasDao _categoriaDao;
+        private readonly ICategoriaDao _categoriaDao;
 
-        public DefaultProdutoService(ILeilaoDao leilaoDao, ICategoriasDao categoriaDao)
+        public DefaultProdutoService(ILeilaoDao leilaoDao, ICategoriaDao categoriaDao)
         {
             this._leilaoDao = leilaoDao;
             this._categoriaDao = categoriaDao;

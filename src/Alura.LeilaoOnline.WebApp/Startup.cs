@@ -33,9 +33,9 @@ namespace Alura.LeilaoOnline.WebApp
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddScoped<ILeilaoDao, LeiloesDao>();
-            services.AddScoped<ICategoriasDao, CategoriasDao>();
+            services.AddScoped<ICategoriaDao, CategoriasDao>();
 
-            services.AddScoped<IAdminService, DefaultAdminService>();
+            services.AddScoped<IAdminService, ArquivamentoAdminService>();
             services.AddScoped<IProdutoService, DefaultProdutoService>();
 
             var sp = services.BuildServiceProvider();

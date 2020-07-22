@@ -8,9 +8,9 @@ namespace Alura.LeilaoOnline.WebApp.Services.Handlers
     public class DefaultAdminService : IAdminService
     {
         private readonly ILeilaoDao _leilaoDao;
-        private readonly ICategoriasDao _categoriaDao;
+        private readonly ICategoriaDao _categoriaDao;
 
-        public DefaultAdminService(ILeilaoDao leilaoDao, ICategoriasDao categoriaDao)
+        public DefaultAdminService(ILeilaoDao leilaoDao, ICategoriaDao categoriaDao)
         {
             this._leilaoDao = leilaoDao;
             this._categoriaDao = categoriaDao;
