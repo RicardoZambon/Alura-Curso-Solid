@@ -8,6 +8,10 @@ namespace Alura.LeilaoOnline.WebApp.Dados
         public DbSet<Leilao> Leiloes { get; set; }
         public DbSet<Categoria> Categorias { get; set; }
 
+        public AppDbContext(DbContextOptions options) : base(options)
+        {
+
+        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
