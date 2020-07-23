@@ -3,8 +3,7 @@ using System.Linq;
 
 namespace Alura.LeilaoOnline.WebApp.Dados.DAO
 {
-    public interface ICategoriaDao : IDao<Categoria>
+    public interface ICategoriaDao : IQuery<Categoria>
     {
-
     }
 }

@@ -7,13 +7,11 @@ namespace Alura.LeilaoOnline.WebApp.Services.Handlers
 {
     public class DefaultProdutoService : IProdutoService
     {
-        private readonly ILeilaoDao _leilaoDao;
         private readonly ICategoriaDao _categoriaDao;
 
-        public DefaultProdutoService(ILeilaoDao leilaoDao, ICategoriaDao categoriaDao)
+        public DefaultProdutoService(ICategoriaDao categoriaDao)
         {
-            this._leilaoDao = leilaoDao;
-            this._categoriaDao = categoriaDao;
+            _categoriaDao = categoriaDao;
         }
 
 
@@ -31,8 +29,5 @@ namespace Alura.LeilaoOnline.WebApp.Services.Handlers
 
         public Categoria ConsultaCategoriaPorIdComLeiloesEmPregao(int id)
             => _categoriaDao.FindByID(id);
-
-        public IEnumerable<Leilao> PesquisaLeiloesEmPregaoPorTermo(string termo)
-            => _leilaoDao.FindByTerm(termo.ToUpper());
     }
 }

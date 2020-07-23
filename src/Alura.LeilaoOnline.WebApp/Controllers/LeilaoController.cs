@@ -1,20 +1,18 @@
-using Alura.LeilaoOnline.WebApp.Dados.DAO;
 using Alura.LeilaoOnline.WebApp.Models;
 using Alura.LeilaoOnline.WebApp.Services;
 using Microsoft.AspNetCore.Mvc;
-using System;
 
 namespace Alura.LeilaoOnline.WebApp.Controllers
 {
     public class LeilaoController : Controller
     {
         private readonly IAdminService _adminService;
-        private readonly IProdutoService _produtoService;
+        private readonly IBuscaService _buscaService;
 
-        public LeilaoController(IAdminService adminService, IProdutoService produtoService)
+        public LeilaoController(IAdminService adminService, IBuscaService buscaService)
         {
             _adminService = adminService;
-            _produtoService = produtoService;
+            this._buscaService = buscaService;
         }
 
 
@@ -92,7 +90,7 @@ namespace Alura.LeilaoOnline.WebApp.Controllers
             }
 
             _adminService.IniciaPregaoDoLeilaoComId(id);
-            
+
             return RedirectToAction("Index");
         }
 
@@ -140,7 +138,7 @@ namespace Alura.LeilaoOnline.WebApp.Controllers
         public IActionResult Pesquisa(string termo)
         {
             ViewData["termo"] = termo;
-            return View("Index", _produtoService.PesquisaLeiloesEmPregaoPorTermo(termo));
+            return View("Index", _buscaService.PesquisaLeiloesEmPregaoPorTermo(termo));
         }
     }
 }

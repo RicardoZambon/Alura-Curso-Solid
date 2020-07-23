@@ -5,10 +5,8 @@ namespace Alura.LeilaoOnline.WebApp.Services
 {
     public interface IProdutoService
     {
-        IEnumerable<Leilao> PesquisaLeiloesEmPregaoPorTermo(string termo);
+        Categoria ConsultaCategoriaPorIdComLeiloesEmPregao(int id);
 
         IEnumerable<CategoriaComInfoLeilao> ConsultaCategoriasComTotalDeLeiloesEmPregao();
-
-        Categoria ConsultaCategoriaPorIdComLeiloesEmPregao(int id);
     }
 }

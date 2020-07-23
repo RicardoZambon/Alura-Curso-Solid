@@ -7,10 +7,12 @@ namespace Alura.LeilaoOnline.WebApp.Controllers
     public class HomeController : Controller
     {
         private readonly IProdutoService _produtoService;
+        private readonly IBuscaService _buscaService;
 
-        public HomeController(IProdutoService produtoService)
+        public HomeController(IProdutoService produtoService, IBuscaService buscaService)
         {
             _produtoService = produtoService;
+            _buscaService = buscaService;
         }
 
 
@@ -42,8 +44,7 @@ namespace Alura.LeilaoOnline.WebApp.Controllers
         public IActionResult Busca(string termo)
         {
             ViewData["termo"] = termo;
-            var leiloes = _produtoService.PesquisaLeiloesEmPregaoPorTermo(termo);
-            return View(leiloes);
+            return View(_buscaService.PesquisaLeiloesEmPregaoPorTermo(termo));
         }
     }
 }

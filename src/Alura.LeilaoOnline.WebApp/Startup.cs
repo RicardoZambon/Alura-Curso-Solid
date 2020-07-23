@@ -37,6 +37,7 @@ namespace Alura.LeilaoOnline.WebApp
 
             services.AddScoped<IAdminService, ArquivamentoAdminService>();
             services.AddScoped<IProdutoService, DefaultProdutoService>();
+            services.AddScoped<IBuscaService, DefaultBuscaService>();
 
             var sp = services.BuildServiceProvider();
             var ctx = sp.GetService<AppDbContext>();
